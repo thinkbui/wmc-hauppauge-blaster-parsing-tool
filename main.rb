@@ -12,4 +12,6 @@ end.parse!
 
 p options
 
-MessageBox.new("Test Title", options[:channel]).show
+File.open('C:/test.txt','w') do |s|
+	s.puts c
+end
