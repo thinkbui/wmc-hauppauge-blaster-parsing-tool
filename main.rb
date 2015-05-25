@@ -12,8 +12,8 @@ end.parse!
 
 p options
 
-File.open('C:/test.txt','w') do |s|
+File.open('C:/Users/thinkbui/test.txt','w+') do |s|
 	s.puts options[:channel]
-	s.puts "!!!!!!!!!!!!!!"
+	s.puts"!!!!!!!!!!!!!!"
 	s.puts ARGV.to_s
 end
