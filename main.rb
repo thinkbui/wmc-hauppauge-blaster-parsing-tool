@@ -13,7 +13,7 @@ end.parse!
 p options
 
 File.open('C:/test.txt','w') do |s|
-	s.puts c
+	s.puts options[:channel]
 	s.puts "!!!!!!!!!!!!!!"
 	s.puts ARGV.to_s
 end
