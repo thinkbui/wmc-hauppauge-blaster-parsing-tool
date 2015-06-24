@@ -10,8 +10,6 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-# p options
-
 begin
 	file = File.read('data.json')
 	list_hash = JSON.parse(file)
@@ -27,8 +25,4 @@ end
 
 puts "Tuning to #{output_string}..."
 
-File.open('C:/Users/thinkbui/test.txt','w+') do |s|
-	s.puts output_string
-	s.puts "!!!!!!!!!!!!!!"
-	s.puts list_hash
-end
+## WRITE EXEC CALL HERE

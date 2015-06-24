@@ -18,18 +18,12 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-# p options
-
 begin
 	file = File.read('data.json')
 	list_hash = JSON.parse(file)
 rescue
 	list_hash = {}
 end
-
-# puts "^^^^^^^^^^^^^^^^^"
-
-# puts list_hash
 
 if options[:channel] && options[:actual]
 	list_hash[options[:channel]] = options[:actual]
@@ -42,15 +36,6 @@ elsif options[:delete]
 else
 	puts "Channel remap list unaltered"
 end
-
-# puts list_hash
-
-# File.open('C:/Users/thinkbui/test.txt','w+') do |s|
-# 	s.puts options[:channel]
-# 	s.puts options[:actual]
-# 	s.puts "!!!!!!!!!!!!!!"
-# 	s.puts list_hash
-# end
 
 File.open('data.json','w') do |f|
 	f.write(list_hash.to_json)
