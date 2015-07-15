@@ -1,7 +1,7 @@
 require 'serialport'
 
 begin
-  parameters = { "baud" => 19200,
+  parameters = { "baud" => 9600,
                            "data_bits" => 8,
                            "stop_bits" => 1,
                            "parity" => SerialPort::NONE }
