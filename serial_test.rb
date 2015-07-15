@@ -14,7 +14,7 @@ begin
   cmd = 250.chr
   cmd += 135.chr
 
-  serial_port.write '\xFA\x87'
+  serial_port.write cmd
   return_str = serial_port.readline(6)
   return_str.split("").each { |c| puts c.ord }
 
