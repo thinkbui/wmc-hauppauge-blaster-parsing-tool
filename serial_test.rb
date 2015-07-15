@@ -11,8 +11,15 @@ begin
   serial_port.read_timeout = 1000
   serial_port.write_timeout = 1000
 
-  cmd = 250.chr
-  cmd += 135.chr
+  cmd = ""
+  # cmd += 250.chr
+  # cmd += 135.chr
+  cmd += 250.chr
+  cmd += 166.chr
+  cmd += 0.chr
+  cmd += 2.chr
+  cmd += 255.chr
+  cmd += 255.chr
 
   serial_port.write cmd
   return_str = serial_port.readline(6)
