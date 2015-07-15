@@ -16,10 +16,10 @@ begin
   # cmd += 135.chr
   cmd += 250.chr
   cmd += 166.chr
+  cmd += 2.chr
+  cmd += 156.chr
   cmd += 0.chr
   cmd += 2.chr
-  cmd += 255.chr
-  cmd += 255.chr
 
   serial_port.write cmd
   return_str = serial_port.readline(6)
