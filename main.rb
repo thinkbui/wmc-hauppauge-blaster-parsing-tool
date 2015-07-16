@@ -1,15 +1,28 @@
-require 'messagebox'
 require 'optparse'
+require 'json'
 
 options = {}
 OptionParser.new do |opts|
-  opts.banner = "Usage: example.rb [options]"
+  opts.banner = "Usage: main.rb [options]"
 
   opts.on("-cCHANNEL", "--channel=CHANNEL", "Channel number") do |c|
     options[:channel] = c
   end
 end.parse!
 
-p options
+begin
+	file = File.read('data.json')
+	list_hash = JSON.parse(file)
+rescue
+	list_hash = {}
+end
 
-MessageBox.new("Test Title", options[:channel]).show
+if list_hash.has_key?(options[:channel])
+	output_string = list_hash[options[:channel]]
+else
+	output_string = options[:channel]
+end
+
+puts "Tuning to #{output_string}..."
+
+## WRITE EXEC CALL HERE
