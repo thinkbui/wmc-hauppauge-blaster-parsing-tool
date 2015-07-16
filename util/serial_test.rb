@@ -1,3 +1,5 @@
+# Modified from http://curiosity.roguepenguin.net/?p=35
+
 require 'serialport'
 
 begin
