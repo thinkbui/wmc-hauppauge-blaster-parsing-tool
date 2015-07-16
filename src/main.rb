@@ -11,7 +11,7 @@ OptionParser.new do |opts|
 end.parse!
 
 begin
-	file = File.read('data.json')
+	file = File.read('data/data.json')
 	list_hash = JSON.parse(file)
 rescue
 	list_hash = {}
