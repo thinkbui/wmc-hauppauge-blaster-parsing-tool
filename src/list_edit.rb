@@ -19,7 +19,7 @@ OptionParser.new do |opts|
 end.parse!
 
 begin
-	file = File.read('data.json')
+	file = File.read('data/data.json')
 	list_hash = JSON.parse(file)
 rescue
 	list_hash = {}
@@ -37,6 +37,6 @@ else
 	puts "Channel remap list unaltered"
 end
 
-File.open('data.json','w') do |f|
+File.open('data/data.json','w') do |f|
 	f.write(list_hash.to_json)
 end
