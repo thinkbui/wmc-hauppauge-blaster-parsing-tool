@@ -18,8 +18,7 @@ begin
   # cmd += 135.chr
   cmd += 250.chr
   cmd += 166.chr
-  cmd += 1.chr
-  cmd += 8.chr
+  cmd += 668.chr(Encoding::UTF_16BE)
   cmd += 255.chr
   cmd += 255.chr
 
