@@ -6,8 +6,8 @@ module DtvControl
 	extend self
 
 	def open_user_channel(main_number,minor_number=65535)
-		cmd = 250.chr(Encoding::UTF_8)
-		cmd += 166.chr(Encoding::UTF_8)
+		cmd = 250.chr(Encoding::ASCII_8BIT)
+		cmd += 166.chr(Encoding::ASCII_8BIT)
 		cmd += ChannelHex.int_to_hex(main_number)
 		cmd += ChannelHex.int_to_hex(minor_number)
 
