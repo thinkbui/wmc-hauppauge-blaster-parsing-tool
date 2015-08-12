@@ -5,11 +5,11 @@ require_relative './channel_hex'
 module DtvControl
 	extend self
 
-	def open_user_channel(main_number,minor_number=65535)
+	def open_user_channel(main_number,minor_number=nil)
 		cmd = 250.chr(Encoding::ASCII_8BIT)
 		cmd += 166.chr(Encoding::ASCII_8BIT)
 		cmd += ChannelHex.int_to_hex(main_number)
-		cmd += ChannelHex.int_to_hex(minor_number)
+		cmd += minor_number ? ChannelHex.int_to_hex(minor_number) : "\xFF\xFF".force_encoding(Encoding::ASCII_8BIT)
 
 		begin
 			parameters = { "baud" => 9600,
