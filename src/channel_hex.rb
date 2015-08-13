@@ -16,4 +16,21 @@ module ChannelHex
 		end
 		channel_num
 	end
+
+	def int_array_to_hex(int_array)
+		int_array.map do |v|
+			if !v.is_a? Integer || v > 65535 || v < 0
+				result = ""
+			elsif (0..255).include? v
+				result = v.chr(Encoding::ASCII_8BIT)
+			elsif (256..65535).include? v
+				result = v.chr(Encoding::UTF_16BE).force_encoding(Encoding::ASCII_8BIT)
+			end
+			result
+		end.join("")
+	end
+
+	def hex_to_int_array(hex_string)
+		hex_string.split("").map{|v| v.ord}
+	end
 end

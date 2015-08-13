@@ -6,10 +6,7 @@ module DtvControl
 	extend self
 
 	def open_user_channel(main_number,minor_number=nil)
-		cmd = 250.chr(Encoding::ASCII_8BIT)
-		cmd += 166.chr(Encoding::ASCII_8BIT)
-		cmd += ChannelHex.int_to_hex(main_number)
-		cmd += minor_number ? ChannelHex.int_to_hex(minor_number) : "\xFF\xFF".force_encoding(Encoding::ASCII_8BIT)
+		cmd = ChannelHex.int_array_to_hex([250,166,main_number,minor_number || 65535])
 
 		begin
 			parameters = { "baud" => 9600,
