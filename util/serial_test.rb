@@ -22,7 +22,7 @@ begin
   # cmd += 8.chr
   # cmd += 255.chr
   # cmd += 255.chr
-  cmd = [250,166,1,8,255,255]
+  cmd = [250,166,1,8,255,255].map!{|v| v.chr("ASCII-8BIT")}
 
   serial_port.write cmd
   return_str = serial_port.readline(6)
