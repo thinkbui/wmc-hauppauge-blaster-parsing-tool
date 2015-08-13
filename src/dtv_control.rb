@@ -7,7 +7,7 @@ module DtvControl
 	extend self
 
 	def open_user_channel(main_number,minor_number=nil)
-		cmd = ChannelHex.int_array_to_hex([250,166].concat(int_to_two_int_byte_array(main_number)).concat(int_to_two_int_byte_array(minor_number || 65535))
+		cmd = ChannelHex.int_array_to_hex([250,166].concat(int_to_two_int_byte_array(main_number)).concat(int_to_two_int_byte_array(minor_number || 65535)))
 
 		begin
 			parameters = { "baud" => 9600,
