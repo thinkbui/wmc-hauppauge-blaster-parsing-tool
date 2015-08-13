@@ -13,15 +13,16 @@ begin
   serial_port.read_timeout = 1000
   serial_port.write_timeout = 1000
 
-  cmd = ""
+  # cmd = ""
   # cmd += 250.chr
   # cmd += 135.chr
-  cmd += 250.chr
-  cmd += 166.chr
-  cmd += 1.chr
-  cmd += 8.chr
-  cmd += 255.chr
-  cmd += 255.chr
+  # cmd += 250.chr
+  # cmd += 166.chr
+  # cmd += 1.chr
+  # cmd += 8.chr
+  # cmd += 255.chr
+  # cmd += 255.chr
+  cmd = [250,166,1,8,255,255].map!{|v| v.chr("ASCII-8BIT")}.join("")
 
   serial_port.write cmd
   return_str = serial_port.readline(6)
